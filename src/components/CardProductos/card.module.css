@@ -1,0 +1,5 @@
+.cardCont {
+  display: flex;
+  align-self: end;
+  background-color: black;
+}

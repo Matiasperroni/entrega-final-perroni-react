@@ -1,6 +1,7 @@
 .container {
-    margin: 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  padding: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: black;
 }

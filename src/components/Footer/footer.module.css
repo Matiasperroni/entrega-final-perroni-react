@@ -1,0 +1,52 @@
+.footer {
+  min-height: 30vh;
+  background-color: black;
+}
+ul {
+  list-style: none;
+}
+/* contiene los iconos */
+.footerContainer {
+  background-color: black;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  border-top: solid 1px white;
+}
+.footerImg {
+  width: 131px;
+  height: 44px;
+}
+
+/* contiene los uls */
+.footerContainerUno {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  border-top: solid 1px white;
+  align-items: start;
+  padding-top: 10vh;
+}
+
+.footerContainerDos {
+  font-size: 24px;
+  color: white;
+  display: flex;
+  font-weight: bold;
+  font-family: "Montserrat";
+  justify-content: center;
+  width: 50vw;
+  align-items: center;
+  padding-right: 10vw;
+}
+.parrafo {
+  margin-left: 1vw;
+  padding-top: 15px;
+}
+.footerContainerTres {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+}

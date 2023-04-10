@@ -1,25 +1,25 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 .container {
-    display: flex;
-    background-color: #1D1D1D;
+  display: flex;
+  background-color: #1d1d1d;
 }
 .imgLogo {
-    display: flex;
-    width: 50%;
-    justify-content: center;
+  display: flex;
+  width: 50%;
+  justify-content: center;
 }
 .navContainer {
-    width: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-p{
-    color:#A5A5A5 ;
-    list-style: none;
-    text-decoration: none;
-    padding-top: 15px;
+.navBarP {
+  color: #a5a5a5;
+  list-style: none;
+  text-decoration: none;
+  padding-top: 15px;
 }
