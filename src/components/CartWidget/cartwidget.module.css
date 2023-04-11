@@ -1,4 +1,7 @@
 .cartCont {
-    display: flex;
-    color: #A5A5A5;
+  display: flex;
+  color: #a5a5a5;
+}
+.widget {
+  color: red;
 }

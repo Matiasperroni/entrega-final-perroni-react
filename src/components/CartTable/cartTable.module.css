@@ -1,0 +1,19 @@
+.cartImg {
+  width: 200px;
+  height: 150px;
+}
+.cartContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+.cartText {
+  font-weight: bold;
+  text-align: center;
+}
+.titulos {
+  font-size: 24px;
+}
+.icono {
+  cursor: pointer;
+}

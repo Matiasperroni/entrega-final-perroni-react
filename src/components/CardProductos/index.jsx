@@ -8,17 +8,10 @@ import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import styles from "./card.module.css";
 import { CartContext } from "../../contexts/cartContext";
-// import db from "../../../db/firebase-config";
-// import { addDoc, collection } from "firebase/firestore";
 
 const CardProductos = ({ producto }) => {
   const { addToCart } = useContext(CartContext);
-  // const carroRef = collection(db, "carro");
-  // const addToCart = async (e) => {
-  //   console.log("hola si funqueee");
-  //   e.preventDefault();
-  //   await addDoc(carroRef, { titulo: producto.title });
-  // };
+
   return (
     <>
       {" "}
@@ -51,7 +44,7 @@ const CardProductos = ({ producto }) => {
 
         <CardActions className={styles.cardCont}>
           <Button
-            onClick={() => addToCart(producto)}
+            onClick={() => addToCart(producto, 1)}
             variant="contained"
             color="success"
           >

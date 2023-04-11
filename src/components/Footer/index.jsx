@@ -13,22 +13,20 @@ const Footer = () => {
       <div className={styles.footer}>
         <div className={styles.footerContainerUno}>
           <ul>
-            <li>hola</li>
-            <li>hola</li>
-            <li>hola</li>
-            <li>hola</li>
+            <li>Términos y condiciones</li>
+            <li>Acerca de nosotros</li>
+            <li>Donde encontrarnos</li>
+            <li>Abierto de lunes a sabado de 9hs hasta 19hs</li>
           </ul>
           <ul>
-            <li>chau</li>
-            <li>chau</li>
-            <li>chau</li>
+            <li>Políticas de compras</li>
+            <li>Metodos de envío</li>
+            <li>Formas de pago</li>
           </ul>
           <ul>
-            <li>asd</li>
-            <li>asd</li>
-            <li>asd</li>
-            <li>asd</li>
-            <li>asd</li>
+            <li>Garantías</li>
+            <li>Devoluciones</li>
+            <li>Trabaja con nosotros</li>
           </ul>
         </div>
       </div>

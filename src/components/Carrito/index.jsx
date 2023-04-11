@@ -1,15 +1,13 @@
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cartContext";
+// import { useContext } from "react";
+// import { CartContext } from "../../contexts/cartContext";
+import CartTable from "../CartTable";
 
 const Carrito = () => {
-  const { cart } = useContext(CartContext);
-  console.log(cart);
+  // const { cart } = useContext(CartContext);
 
   return (
     <div>
-      {cart.map((item) => (
-        <h1 key={item.id}>{item.titulo}</h1>
-      ))}
+      <CartTable />
     </div>
   );
 };

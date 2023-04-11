@@ -1,18 +1,45 @@
-.btn {
-    color: #A5A5A5 !important; 
-    background-color: #1D1D1D !important;
-    border: none !important;
-    padding: 0;
-    margin: 0;
+/* Estilos para el contenedor del dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 9999;
 }
-.btn:hover {
-    color: #A5A5A5 !important; 
-    background-color: #1D1D1D !important;
+
+/* Estilos para el botón del dropdown */
+.dropdownButton {
+  background-color: #b07c83;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
 }
-.dropContainer{
-    display: flex !important;
-    flex-direction: column !important;
-    text-decoration: none !important;
-    color: #A5A5A5 !important; 
-    background-color: #1D1D1D !important;
+
+/* Estilos para el contenido del dropdown */
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Estilos para los enlaces del dropdown */
+.dropdownContent a {
+  color: white;
+  text-decoration: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Estilos para los enlaces del dropdown al pasar el cursor por encima */
+.dropdownContent .enlace:hover {
+  background-color: #e9ecef;
+  color: black;
+  font-weight: bold;
+  transition: 500ms;
 }

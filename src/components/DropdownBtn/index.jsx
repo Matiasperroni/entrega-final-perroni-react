@@ -1,35 +1,37 @@
-// import Dropdown from 'react-bootstrap/Dropdown';
 import { NavLink } from "react-router-dom";
-// import styles from "./dropdownbtn.module.css";
+import styles from "./dropdownbtn.module.css";
+
+import { useState } from "react";
 
 function DropDownContenido() {
-  return (
-    <ul>
-      <li>
-        <NavLink to="/category/men's clothing">ROPA DE HOMBRE</NavLink>
-      </li>
-      <li>
-        <NavLink to="/category/electronics">ELECTRONICA</NavLink>
-      </li>
-      <li>
-        <NavLink to="/category/jewelery">JOYERIA</NavLink>
-      </li>
-      <li>
-        <NavLink to="/category/women's clothing">ROPA DE MUJER</NavLink>
-      </li>
-    </ul>
-    // <Dropdown>
-    //   <Dropdown.Toggle className={styles.btn} id="dropdown-basic">
-    //     CATEGORIAS
-    //   </Dropdown.Toggle>
+  const [isOpen, setIsOpen] = useState(false);
 
-    //   <Dropdown.Menu className={styles.dropContainer}>
-    //     <NavLink to="/category/men's clothing">ROPA DE HOMBRE</NavLink>
-    //     <NavLink to="/category/electronics">ELECTRONICA</NavLink>
-    //     <NavLink to="/category/jewelery">JOYERIA</NavLink>
-    //     <NavLink to="/category/women's clothing">ROPA DE MUJER</NavLink>
-    //   </Dropdown.Menu>
-    // </Dropdown>
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className={styles.dropdown}>
+      <button className={styles.dropdownButton} onClick={toggleDropdown}>
+        Categorias
+      </button>
+      {isOpen && (
+        <div className={styles.dropdownContent}>
+          <NavLink className={styles.enlace} to="/category/men's clothing">
+            ROPA DE HOMBRE
+          </NavLink>
+          <NavLink className={styles.enlace} to="/category/electronics">
+            ELECTRONICA
+          </NavLink>
+          <NavLink className={styles.enlace} to="/category/jewelery">
+            JOYERIA
+          </NavLink>
+          <NavLink className={styles.enlace} to="/category/women's clothing">
+            ROPA DE MUJER
+          </NavLink>
+        </div>
+      )}
+    </div>
   );
 }
 
