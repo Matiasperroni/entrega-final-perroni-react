@@ -2,7 +2,7 @@ import { doc, getDoc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../../db/firebase-config";
-import { CartContext } from "../../contexts/cartContext";
+import { CartContext } from "../../contexts/cartContext.jsx";
 import Button from "@mui/material/Button";
 import styles from "./itemdetailcontainer.module.css";
 import Swal from "sweetalert2";

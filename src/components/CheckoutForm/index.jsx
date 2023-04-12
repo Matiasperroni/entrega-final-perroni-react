@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import styles from "./checkoutform.module.css";
 import Button from "@mui/material/Button";
-import { CartContext } from "../../contexts/cartContext";
+import { CartContext } from "../../contexts/cartContext.jsx";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../../../db/firebase-config";
 import { NavLink } from "react-router-dom";

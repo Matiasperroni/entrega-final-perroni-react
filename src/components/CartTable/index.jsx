@@ -1,5 +1,5 @@
 import Table from "react-bootstrap/Table";
-import { CartContext } from "../../contexts/cartContext";
+import { CartContext } from "../../contexts/cartContext.jsx";
 import { useContext, useState } from "react";
 import styles from "./cartTable.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
