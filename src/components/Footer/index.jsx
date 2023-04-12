@@ -7,7 +7,6 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 import React from "react";
 
 const Footer = () => {
-  console.log("cargue footer");
   return (
     <>
       <div className={styles.footer}>

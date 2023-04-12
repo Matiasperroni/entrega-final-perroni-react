@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import db from "../db/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import Carrito from "./components/Carrito";
+import CheckoutForm from "./components/CheckoutForm";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [productos, setProductos] = useState([]);
@@ -36,6 +38,8 @@ function App() {
         />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/checkoutForm" element={<CheckoutForm />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
       <Footer />
     </div>

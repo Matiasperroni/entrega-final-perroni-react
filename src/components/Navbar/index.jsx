@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DropDownContenido from "../DropdownBtn";
 
 const Navbar = () => {
-  console.log("cargue navbar");
   return (
     <div className={styles.container}>
       <div className={styles.imgLogo}>

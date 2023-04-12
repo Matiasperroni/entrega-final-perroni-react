@@ -8,9 +8,18 @@ import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import styles from "./card.module.css";
 import { CartContext } from "../../contexts/cartContext";
+import Swal from "sweetalert2";
 
 const CardProductos = ({ producto }) => {
   const { addToCart } = useContext(CartContext);
+  const addAlertCart = () => {
+    Swal.fire({
+      icon: "success",
+      title: "El producto se agrego al carrito!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
 
   return (
     <>
@@ -38,13 +47,20 @@ const CardProductos = ({ producto }) => {
               {producto.title}
             </Typography>
             <Typography variant="body2">{producto.description}</Typography>
-            <Typography>$ {producto.price}</Typography>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: 36,
+              }}
+            >
+              $ {producto.price}
+            </Typography>
           </CardContent>
         </CardActionArea>
 
         <CardActions className={styles.cardCont}>
           <Button
-            onClick={() => addToCart(producto, 1)}
+            onClick={() => addToCart(producto, 1, addAlertCart)}
             variant="contained"
             color="success"
           >

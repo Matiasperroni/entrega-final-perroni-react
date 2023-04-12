@@ -6,20 +6,24 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 
 function CartTable() {
-  const { cart, eliminarProd, vaciarCart } = useContext(CartContext);
+  const { cart, eliminarProd, vaciarCart, calcularTotal } =
+    useContext(CartContext);
   const [precioTotal, setPrecioTotal] = useState(0);
+  const deleteAlertCart = () => {
+    Swal.fire({
+      icon: "error",
+      title: "El producto se elimino del carrito",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
 
   useEffect(() => {
-    const calcularTotal = () => {
-      let total = 0;
-      cart.forEach((element) => {
-        total += element.precio * element.quantity;
-      });
-      setPrecioTotal(total.toFixed(2));
-    };
-    calcularTotal();
+    calcularTotal(setPrecioTotal);
   }, [cart]);
   return (
     <>
@@ -43,7 +47,7 @@ function CartTable() {
               <th>
                 <DeleteIcon
                   className={styles.icono}
-                  onClick={(e) => eliminarProd(e)}
+                  onClick={(e) => eliminarProd(e, deleteAlertCart)}
                 />
               </th>
             </tr>
@@ -61,13 +65,15 @@ function CartTable() {
         >
           VACIAR CARRITO
         </Button>
-        <Button
-          variant="outlined"
-          color="success"
-          startIcon={<PointOfSaleIcon />}
-        >
-          PROCEDER A LA COMPRA
-        </Button>
+        <NavLink to={"/checkoutForm"}>
+          <Button
+            variant="outlined"
+            color="success"
+            startIcon={<PointOfSaleIcon />}
+          >
+            PROCEDER A LA COMPRA
+          </Button>
+        </NavLink>
       </div>
     </>
   );

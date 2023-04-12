@@ -7,11 +7,22 @@ import {
   deleteDoc,
   doc,
   writeBatch,
+  query,
+  where,
 } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+  const msj = () => {
+    Swal.fire({
+      icon: "error",
+      title: "El producto ya existe en el carrito",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   const [cart, setCart] = useState([]);
   const [itemsInCart, setItemsInCart] = useState(0);
   const cartRef = collection(db, "carro");
@@ -23,15 +34,30 @@ const CartProvider = ({ children }) => {
     }));
     setCart(itemsCart);
   };
-  const addToCart = async (item, quantity) => {
-    await addDoc(cartRef, {
-      titulo: item.title,
-      precio: item.price,
-      imagen: item.image,
-      quantity,
-    });
-    await getItems();
+  const addToCart = async (item, quantity, func) => {
+    try {
+      const cartRef = collection(db, "carro");
+      const cartQuery = query(cartRef, where("itemId", "==", item.id));
+      const cartSnapshot = await getDocs(cartQuery);
+
+      if (cartSnapshot.size > 0) {
+        msj();
+      } else {
+        await addDoc(cartRef, {
+          itemId: item.id,
+          titulo: item.title,
+          precio: item.price,
+          imagen: item.image,
+          quantity,
+        });
+        func();
+        await getItems();
+      }
+    } catch (error) {
+      console.error("Error al agregar el item al carrito:", error);
+    }
   };
+
   const deleteCart = async (id) => {
     const docuRef = doc(db, "carro", id);
     console.log(docuRef);
@@ -44,13 +70,13 @@ const CartProvider = ({ children }) => {
     console.log("elimine el producto", id);
   };
 
-  const eliminarProd = async (e) => {
+  const eliminarProd = async (e, func) => {
     const prodID =
       e.target.parentElement.parentElement.parentElement.getAttribute(
         "data-id"
       );
     await deleteCart(prodID);
-    console.log("algunID", prodID);
+    func();
   };
 
   const vaciarCart = async (coleccion) => {
@@ -76,12 +102,19 @@ const CartProvider = ({ children }) => {
       cantidadTotal += item.quantity;
     });
     setItemsInCart(cantidadTotal);
-    console.log("cantidad total", itemsInCart);
     return cantidadTotal;
   };
   useEffect(() => {
     updateCartWidget();
   }, [cart]);
+
+  const calcularTotal = (func) => {
+    let total = 0;
+    cart.forEach((element) => {
+      total += element.precio * element.quantity;
+    });
+    func(total.toFixed(2));
+  };
 
   return (
     <CartContext.Provider
@@ -92,6 +125,7 @@ const CartProvider = ({ children }) => {
         updateCartWidget,
         itemsInCart,
         cart,
+        calcularTotal,
       }}
     >
       {children}

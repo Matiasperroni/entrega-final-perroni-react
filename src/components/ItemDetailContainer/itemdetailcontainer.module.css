@@ -1,4 +1,25 @@
+.primerDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 3%;
+}
+.primerDiv h1,
+h2,
+h4,
+input {
+  font-weight: bold !important;
+}
 .contenedor {
   font-weight: bold;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.contenedorDos {
+  width: 40%;
+}
+.imagenDetail {
+  width: 400px;
+  height: 400px;
 }
